@@ -7,41 +7,33 @@ export default new Vuex.Store({
   state: {
     joke: 'Click the "Get Joke" button to get a Joke!',
     unmutated: "",
-    jokeTwo: 'Click the "Get Joke" button to get a Joke!',
   },
   mutations: {
     setJoke(state, data) {
       state.joke = data;
     },
-    // This will be the same joke as the first
-    setSecondJoke(state, data) {
-      state.jokeTwo = data;
-    },
-
+    // unmutated state that is set each time the axios call is made
     setUnmutated(state, data) {
       state.unmutated = data;
     },
-
-    // Set the style KVP
-    updateStyle(state, data) {
-      state.style = data;
-    },
-
+    // updates joke state to also be uppercase
     addLoud(state, data) {
       state.joke = data.toUpperCase();
     },
-
+    // updates joke state to have all spaces replaced with undersores
     makeSnake(state, data) {
       state.joke = data.replaceAll(" ", "_");
-    },
-    makeNormie(state, data) {
-      state.joke = data;
     },
   },
   actions: {},
   getters: {
+    // getter for passing as an argument in LoudJoke
     onlyLoud(state) {
       return state.joke.toUpperCase();
+    },
+    // getter for passing as an argument in SnakeJoke
+    onlySnakey(state) {
+      return state.joke.replaceAll(" ", "_");
     },
   },
 });

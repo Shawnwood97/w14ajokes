@@ -1,8 +1,14 @@
 <template>
   <!-- run method on click to commit the mutation -->
   <div>
-    <button @click="addLoudClick">+ GET LOUD</button>
-    <button @click="onlyLoudClick(setOnlyLoud)">ONLY LOUD</button>
+    <h3>LOUDER!</h3>
+    <div class="btnContainer">
+      <button class="changeBtn" @click="addLoudClick">ADD MOAR LOUD</button>
+      <!-- pass method as an argument to the getter -->
+      <button class="changeBtn" @click="onlyLoudClick(setOnlyLoud)">
+        ONLY LOUD
+      </button>
+    </div>
   </div>
 </template>
 
@@ -21,7 +27,7 @@ export default {
     // set the change being made
 
     onlyLoudClick(style) {
-      // commit mutation using updateStyle function in Store and passing arg in @click.
+      // method to accept argument and run a conditional to make the fact only be capitalized, unlike above where it adds the effect to any other mutations done. bc state :)
       let unmutatedJoke = this.$store.state.unmutated;
       let joke = this.$store.state.joke;
       if (joke !== unmutatedJoke.toUpperCase()) {

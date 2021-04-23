@@ -1,5 +1,5 @@
 <template>
-  <header><h1>Joke Site</h1></header>
+  <header><h1>Chuckey Norris FACTS!!!</h1></header>
 </template>
 
 <script>

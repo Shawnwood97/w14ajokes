@@ -1,6 +1,8 @@
 <template>
   <!-- make axios request on button click -->
-  <button @click="getJoke">Get Joke</button>
+  <div>
+    <button class="bigBtn" @click="getJoke">Get Joke</button>
+  </div>
 </template>
 
 <script>
@@ -20,8 +22,7 @@ export default {
           // mutate the joke KVP in the store to the response given by the API.
           this.$store.commit("setJoke", res.data.joke);
 
-          // trying another way, so committing to another state variable
-          this.$store.commit("setSecondJoke", res.data.joke);
+          // Set a variable to the default styling each time the axios call is made for easy revert to "normal", dunno if good or bad, but I thought clever.
           this.$store.commit("setUnmutated", res.data.joke);
         })
         // error catch
@@ -33,4 +34,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+div {
+  display: grid;
+  place-items: center;
+}
+</style>
