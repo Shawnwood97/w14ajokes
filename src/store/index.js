@@ -6,10 +6,12 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     joke: 'Click the "Get Joke" button to get a Joke!',
+    unmutated: "",
   },
   mutations: {
     getJoke(state, data) {
       state.joke = data;
+      state.unmutated = data;
     },
 
     makeLoud(state, data) {
@@ -18,6 +20,9 @@ export default new Vuex.Store({
 
     makeSnake(state, data) {
       state.joke = data.replaceAll(" ", "_");
+    },
+    makeNormie(state, data) {
+      state.joke = data;
     },
   },
   actions: {},

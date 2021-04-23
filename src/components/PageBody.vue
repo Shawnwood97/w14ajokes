@@ -1,10 +1,11 @@
 <template>
   <main>
+    <h1 id="theJoke">{{ getJokeFromStore }}</h1>
     <div>
-      <h1 id="jokePlace">{{ getJokeFromStore }}</h1>
       <joke-button />
       <loud-joke />
       <snake-joke />
+      <normal-joke />
       <!-- <button @click="getQuote">Get Quote</button> -->
       <!-- <p>{{ theQuote }}</p> -->
     </div>
@@ -14,9 +15,10 @@
 <script>
 import JokeButton from "./JokeButton.vue";
 import LoudJoke from "./LoudJoke.vue";
+import NormalJoke from "./NormalJoke.vue";
 import SnakeJoke from "./SnakeJoke.vue";
 export default {
-  components: { JokeButton, LoudJoke, SnakeJoke },
+  components: { JokeButton, LoudJoke, SnakeJoke, NormalJoke },
   name: "page-body",
 
   computed: {
@@ -32,6 +34,11 @@ main {
   background: rgb(113, 153, 136);
   min-height: 92vh;
   display: grid;
-  grid-auto-flow: column;
+}
+
+#theJoke {
+  overflow-wrap: break-word;
+  max-width: 95vw;
+  place-self: center;
 }
 </style>
