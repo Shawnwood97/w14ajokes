@@ -1,4 +1,5 @@
 <template>
+  <!-- run method on click to commit the mutation -->
   <button @click="makeNormieClick">Back To Normie!</button>
 </template>
 
@@ -9,7 +10,7 @@ export default {
   methods: {
     makeNormieClick() {
       let joke = this.$store.state.unmutated;
-      this.$store.commit("getJoke", joke);
+      this.$store.commit("setJoke", joke);
     },
   },
 };

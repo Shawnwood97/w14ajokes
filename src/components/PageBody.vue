@@ -1,13 +1,13 @@
 <template>
   <main>
+    <!-- joke is displayed here using MOOOstache syntax and the computed data from below -->
     <h1 id="theJoke">{{ getJokeFromStore }}</h1>
-    <div>
-      <joke-button />
+    <h1 id="theJoke">{{ getJokeFromStoreTwo }}</h1>
+    <joke-button @click.native="isHidden = false" />
+    <div v-if="!isHidden">
       <loud-joke />
       <snake-joke />
       <normal-joke />
-      <!-- <button @click="getQuote">Get Quote</button> -->
-      <!-- <p>{{ theQuote }}</p> -->
     </div>
   </main>
 </template>
@@ -20,10 +20,18 @@ import SnakeJoke from "./SnakeJoke.vue";
 export default {
   components: { JokeButton, LoudJoke, SnakeJoke, NormalJoke },
   name: "page-body",
-
+  data() {
+    return {
+      isHidden: true,
+    };
+  },
   computed: {
+    // function to return the state from the joke KVP in store.
     getJokeFromStore() {
       return this.$store.state.joke;
+    },
+    getJokeFromStoreTwo() {
+      return this.$store.state.jokeTwo;
     },
   },
 };

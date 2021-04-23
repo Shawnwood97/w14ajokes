@@ -7,14 +7,27 @@ export default new Vuex.Store({
   state: {
     joke: 'Click the "Get Joke" button to get a Joke!',
     unmutated: "",
+    jokeTwo: 'Click the "Get Joke" button to get a Joke!',
   },
   mutations: {
-    getJoke(state, data) {
+    setJoke(state, data) {
       state.joke = data;
+    },
+    // This will be the same joke as the first
+    setSecondJoke(state, data) {
+      state.jokeTwo = data;
+    },
+
+    setUnmutated(state, data) {
       state.unmutated = data;
     },
 
-    makeLoud(state, data) {
+    // Set the style KVP
+    updateStyle(state, data) {
+      state.style = data;
+    },
+
+    addLoud(state, data) {
       state.joke = data.toUpperCase();
     },
 
@@ -26,5 +39,9 @@ export default new Vuex.Store({
     },
   },
   actions: {},
-  getters: {},
+  getters: {
+    onlyLoud(state) {
+      return state.joke.toUpperCase();
+    },
+  },
 });
